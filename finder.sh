@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DELAY_SEC=600
+DELAY_SEC=300
 
 PATTERN="An diesem Tag einen Termin buchen"
 
@@ -15,7 +15,7 @@ function show_notification {
 }
 
 function zap {
-  $(curl ***REMOVED***)
+  $(curl url_here)
 }
 
 function printUrl {
@@ -31,11 +31,29 @@ fi
   echo -e "\a"
 }
 
+function searchPageAndReport {
+  time=`date`
+  echo "About to search page; ${time}"
+  slot_exists=`wget ${FULL_URL} -qO- | grep -c "${PATTERN}"`
+  echo "Finished Searching page; ${time}"
+  [[ $slot_exists -gt 0 ]] && show_notification && printUrl && makeNoise
+
+}
+
 FULL_URL="`wget https://service.berlin.de/dienstleistung/120686/ -qO- | grep "Termin berlinweit suchen</a" |  sed -e 's/<a .*href=['"'"'"]//' -e 's/["'"'"'].*$//' -e '/^$/ d' | sed 's/\&amp;/\&/g'`"
 
-while true
-do
-  slot_exists=`wget ${FULL_URL} -qO- | grep -c "${PATTERN}"`
-  [[ $slot_exists -gt 0 ]] && zap && show_notification && printUrl && makeNoise
-  sleep ${DELAY_SEC}
-done
+CRON_FLAG=$1
+
+if (( ${#CRON_FLAG} > 0 ))
+then
+  searchPageAndReport
+  exit
+else
+  while true
+  do
+    searchPageAndReport
+    sleep ${DELAY_SEC}
+  done
+fi
+
+
