@@ -1,4 +1,4 @@
-# Amelung Finder Berlin
+# Anmeldung Finder Berlin
 
 This repo is used for finding ANY available Amelung registration appointments.
 
