@@ -1,5 +1,7 @@
 # How I got apartment viewings
 
+*Disclaimer: There are many ways to do this. This is what worked for me.*
+
 I used this app: https://www.immobilienscout24.de/ 
 
 I payed for two months of the premium service (29 euro a month).
