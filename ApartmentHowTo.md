@@ -5,6 +5,7 @@
 I used this app: https://www.immobilienscout24.de/ 
 
 I payed for two months of the premium service (29 euro a month).
+Try and fill in as much of the profile on the app as you can. This helps prefill fields on applying and makes you look more legit.
 I setup a “saved search” in the app that would alert me of apartments that fit my requirements.
 The most important thing is whenever I would get an alert I would immediately open the app and click apply no matter the apartment since the saved search should have filters.
 The app saves short intro message (more on this later). 99% of the time they do not contact you back so applying to view as many as you can is the best method.
