@@ -31,8 +31,6 @@ function crawl_appointment {
     bookable=$(echo "$contents" | xpath_search "count(//td[@class='buchbar'])")
     non_bookable=$(echo "$contents" | xpath_search "count(//td[@class='nichtbuchbar'])")
 
-    bookable=12
-
     echo "$i. ${target:0:64}... (bookable=$bookable, non_bookable=$non_bookable)"
     if ((bookable > 0)); then
       notify "Slot available!" "$bookable days with free slots, see $initial_target"
