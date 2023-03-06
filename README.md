@@ -51,27 +51,29 @@ Thus, when running
 * <details>
   <summary>TamperMonkey Script Example</summary>
 
-        // ==UserScript==
-        // @name         New Userscript
-        // @namespace    http://tampermonkey.net/
-        // @version      0.1
-        // @description  try to take over the world!
-        // @author       You
-        // @match        https://service.berlin.de/terminvereinbarung/termin/register/*
-        // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-        // @grant        none
-        // ==/UserScript==
-
-        (function() {
-            'use strict';
-            document.getElementById("familyName").value = "Your full name";
-            document.getElementById("email").value = "youremail@example.com";
-            document.getElementsByName("surveyAccepted")[0].value = 1;
-            document.getElementById("agbgelesen").checked = true;
-
-            // I add issues with auto submitting so commented out
-            //document.getElementById("register_submit").click();
-        })();
+  ```javascript
+  // ==UserScript==
+  // @name         New Userscript
+  // @namespace    http://tampermonkey.net/
+  // @version      0.1
+  // @description  try to take over the world!
+  // @author       You
+  // @match        https://service.berlin.de/terminvereinbarung/termin/register/*
+  // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+  // @grant        none
+  // ==/UserScript==
+  
+  (function () {
+      'use strict';
+      document.getElementById("familyName").value = "Your full name";
+      document.getElementById("email").value = "youremail@example.com";
+      document.getElementById("telephone").value = "0123456789;
+      document.getElementsByName("surveyAccepted")[0].value = 1;
+      document.getElementById("agbgelesen").checked = true;
+      // This may lead to an endles loop of reloading the page if one of the fields is invalid!
+      //document.getElementById("register_submit").click();
+  })();
+  ```
 
 </details>
 
